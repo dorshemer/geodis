@@ -100,15 +100,16 @@ class GeonamesImporter(Importer):
                 region = re.sub('\\(.+\\)', '', self._adminCodes.get(adminCode, '')).strip()
 
                 #for us states - take only state code not full name
-                if country == 'US':
-                    region = row[10]
+                # if country == 'US':
+                #     region = row[10]
 
                 lat = float(row[4])
                 lon = float(row[5])
 
                 loc = City(name = name,
-                                country = country,
+                                country_code = country,
                                 state = region,
+                                state_code = row[10],
                                 lat = lat,
                                 lon = lon)
 

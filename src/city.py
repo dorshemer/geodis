@@ -33,7 +33,7 @@ class City(Location):
     """
 
     #what we want to save for a city
-    __spec__ = Location.__spec__ + ['country', 'state']
+    __spec__ = Location.__spec__ + ['country', 'state', 'country_code']
 
     #key is identical to what we want to save
     __keyspec__ = None
@@ -42,8 +42,8 @@ class City(Location):
 
         super(City, self).__init__(**kwargs)
 
-        self.country = countries.get( kwargs.get('country', None), kwargs.get('country', '')).strip()
+        self.country = countries.get( kwargs.get('country_code', None), kwargs.get('country', '')).strip()
         self.state = kwargs.get('state', '').strip()
-        
+        self.country_code = kwargs.get('country_code', None) or kwargs.get('country', None)
 
         
