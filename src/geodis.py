@@ -85,7 +85,7 @@ def resolveIP(ip):
 def resolveCoords(lat, lon):
     global redis_host, redis_port, redis_db
     r = redis.Redis(host = redis_host, port = redis_port, db = redis_db)
-    loc = ZIPCode.getByLatLon(lat, lon, r)
+    loc = City.getByLatLon(lat, lon, r)
     print loc
 
 
